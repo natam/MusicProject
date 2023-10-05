@@ -3,7 +3,10 @@ package Artist;
 import java.util.List;
 
 public class Main {
+    private static String searchTerm;
+
     public static void main(String[] args) {
+        searchTerm = "Ma";
         MusicCompany myMusic = new MusicCompany("NKH Music");
         ArtistClass linkingPark = new ArtistClass("Linking Park", "alternative rock");
         myMusic.addArtist(linkingPark);
@@ -13,10 +16,10 @@ public class Main {
         linkingPark.introduce();
         myMusic.addArtist(new ArtistClass("Machete", "pop/rock"));
         myMusic.addArtist(new ArtistClass("Marilyn Manson", "rock"));
-        List<ArtistClass> searchResult = myMusic.searchArtist("Ma");
-        System.out.println("Found " + searchResult.size() + " artists: ");
-        for (ArtistClass artist: searchResult
-             ) {
+        List<ArtistClass> searchResult = myMusic.searchArtist(searchTerm);
+        System.out.println("For your search '" + searchTerm + "' found " + searchResult.size() + " artists: ");
+        for (ArtistClass artist : searchResult
+        ) {
             System.out.println(artist.getArtistName());
         }
 
