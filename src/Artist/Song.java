@@ -1,6 +1,6 @@
 package Artist;
 
-public class Song {
+public class Song implements CsvPrintable{
     public String getTitle() {
         return title;
     }
@@ -14,4 +14,9 @@ public class Song {
     }
 
     private String title;
+
+    @Override
+    public String printCsv() {
+        return new StringBuilder().append(title).toString();
+    }
 }

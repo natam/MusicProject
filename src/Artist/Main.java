@@ -23,5 +23,16 @@ public class Main {
             System.out.println(artist.getArtistName());
         }
 
+        List<ArtistClass> searchResult2 = myMusic.searchArtistByName("Linking Park");
+        System.out.println("For your search '" + "Linking Park" + "' found " + searchResult2.size() + " artists: ");
+        for (ArtistClass artist : searchResult2
+        ) {
+            System.out.println(artist.getArtistName());
+        }
+
+        ArtistClass searchResult3 = myMusic.searchArtistByName2("Machete");
+        System.out.println("For your search '" + "Machete" + "' found " + searchResult3.getArtistName() + " artists: ");
+        System.out.println(myMusic.printCsv());
+        myMusic.exportCsv();
     }
 }

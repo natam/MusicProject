@@ -3,7 +3,8 @@ package Artist;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Album {
+public class Album implements CsvPrintable{
+    private static final char CSV_SEPARATOR = ';';
     private String albumTitle;
     private String releaseDate;
     private List<Song> albumSongs = new ArrayList();
@@ -34,5 +35,18 @@ public class Album {
 
     public List<Song> getAlbumSongs(){
         return albumSongs;
+    }
+
+    @Override
+    public String printCsv() {
+        StringBuilder albumCSV = new StringBuilder().append(albumTitle)
+                .append(CSV_SEPARATOR)
+                .append(releaseDate);
+        for (Song song: albumSongs
+             ) {
+            albumCSV.append(CSV_SEPARATOR)
+                    .append(song.printCsv());
+        }
+        return albumCSV.toString();
     }
 }
